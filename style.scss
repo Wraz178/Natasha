@@ -1,0 +1,56 @@
+$colors: #ffb6c1, #ff8aa8, #ff5c8a, #ff2e6f, #ff0f5c, #e6004c;
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.layered-heart {
+  position: relative;
+  width: 250px;
+  height: 250px;
+}
+
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  border-radius: 50% 50% 0 0;
+}
+
+@for $i from 0 through 5 {
+  .heart-#{$i} {
+    $size: 250px - ($i * 20px);
+    width: $size;
+    height: $size;
+    background-color: nth($colors, $i + 1);
+    z-index: #{6 - $i};
+  }
+
+  .heart-#{$i}::before,
+  .heart-#{$i}::after {
+    content: "";
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: inherit;
+    border-radius: 50%;
+  }
+
+  .heart-#{$i}::before {
+    top: -$size / 2;
+    left: 0;
+  }
+
+  .heart-#{$i}::after {
+    top: 0;
+    left: $size / 2;
+  }
+}

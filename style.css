@@ -1,0 +1,403 @@
+html, body {
+ 
+  min-height: 100vh;
+  
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  
+}
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  
+  flex-direction: column;
+  text-align: center;
+}
+
+.layered-heart {
+  position: fixed;
+  width: 250px;
+  height: 250px;
+  top: 0;
+  transition: top 3s ease;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  
+}
+.layered-heart.move-up {
+  
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Функция для расчёта пропорций:
+   исходный размер 250px, исходный top = -125px, left для ::after = 125px */
+
+/* Слой 0 - самый большой, 250px */
+.heart-0 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250px;
+  height: 250px;
+  background-color: #ffb6c1;
+  border-radius: 0 0 0 0; /* сбросим, т.к. используем псевдоэлементы */
+  transform: translate(-50%, -50%) rotate(-45deg);
+  z-index: 1;
+}
+
+.heart-0::before,
+.heart-0::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.heart-0::before {
+  width: 250px;
+  height: 250px;
+  background-color: #ffb6c1;
+  top: -125px; /* -50% от 250 */
+  left: 0;
+}
+
+.heart-0::after {
+  width: 250px;
+  height: 250px;
+  background-color: #ffb6c1;
+  top: 0;
+  left: 125px; /* 50% от 250 */
+}
+
+/* Слой 1 - 230px */
+.heart-1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 230px;
+  height: 230px;
+  background-color: #ff8aa8;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  z-index: 2;
+}
+
+.heart-1::before,
+.heart-1::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.heart-1::before {
+  width: 230px;
+  height: 230px;
+  background-color: #ff8aa8;
+  top: -115px; /* -50% от 230 */
+  left: 0;
+}
+
+.heart-1::after {
+  width: 230px;
+  height: 230px;
+  background-color: #ff8aa8;
+  top: 0;
+  left: 115px; /* 50% от 230 */
+}
+
+/* Слой 2 - 210px */
+.heart-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 210px;
+  height: 210px;
+  background-color: #ff5c8a;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  z-index: 3;
+}
+
+.heart-2::before,
+.heart-2::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.heart-2::before {
+  width: 210px;
+  height: 210px;
+  background-color: #ff5c8a;
+  top: -105px; /* -50% от 210 */
+  left: 0;
+}
+
+.heart-2::after {
+  width: 210px;
+  height: 210px;
+  background-color: #ff5c8a;
+  top: 0;
+  left: 105px; /* 50% от 210 */
+}
+
+/* Слой 3 - 190px */
+.heart-3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 190px;
+  height: 190px;
+  background-color: #ff2e6f;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  z-index: 4;
+}
+
+.heart-3::before,
+.heart-3::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.heart-3::before {
+  width: 190px;
+  height: 190px;
+  background-color: #ff2e6f;
+  top: -95px; /* -50% от 190 */
+  left: 0;
+}
+
+.heart-3::after {
+  width: 190px;
+  height: 190px;
+  background-color: #ff2e6f;
+  top: 0;
+  left: 95px; /* 50% от 190 */
+}
+
+/* Слой 4 - 170px */
+.heart-4 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 170px;
+  height: 170px;
+  background-color: #ff0f5c;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  z-index: 5;
+}
+
+.heart-4::before,
+.heart-4::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.heart-4::before {
+  width: 170px;
+  height: 170px;
+  background-color: #ff0f5c;
+  top: -85px; /* -50% от 170 */
+  left: 0;
+}
+
+.heart-4::after {
+  width: 170px;
+  height: 170px;
+  background-color: #ff0f5c;
+  top: 0;
+  left: 85px; /* 50% от 170 */
+}
+
+/* Слой 5 - 150px */
+.heart-5 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  background-color: #e6004c;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  z-index: 6;
+}
+
+.heart-5::before,
+.heart-5::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.heart-5::before {
+  width: 150px;
+  height: 150px;
+  background-color: #e6004c;
+  top: -75px; /* -50% от 150 */
+  left: 0;
+}
+
+.heart-5::after {
+  width: 150px;
+  height: 150px;
+  background-color: #e6004c;
+  top: 0;
+  left: 75px; /* 50% от 150 */
+}
+
+
+
+
+/* Общий сброс теней */
+.heart-0, .heart-1, .heart-2, .heart-3, .heart-4, .heart-5,
+.heart-0::before, .heart-1::before, .heart-2::before, .heart-3::before, .heart-4::before, .heart-5::before,
+.heart-0::after, .heart-1::after, .heart-2::after, .heart-3::after, .heart-4::after, .heart-5::after {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+
+/* Анимация масштабирования сердца */
+@keyframes heartbeat {
+  0% {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  }
+  15% {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1.08);
+  }
+  30% {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  }
+  45% {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1.06);
+  }
+  60% {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  }
+  80% {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1.02);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  }
+}
+
+/* Анимация свечения */
+@keyframes heartShadow {
+  0% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  15% {
+    box-shadow: 0 0 65px rgba(255, 105, 135, 0.6);
+  }
+  30% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  45% {
+    box-shadow: 0 0 57px rgba(255, 105, 135, 0.4);
+  }
+  60% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  80% {
+    box-shadow: 0 0 40px rgba(255, 105, 135, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+/* Применяем анимации ко всем частям каждого слоя */
+@keyframes inherit-animation {}
+
+/* Анимация масштабирования (transform) — для всех слоев */
+.heart-0.heartbeat,
+.heart-1.heartbeat,
+.heart-2.heartbeat,
+.heart-3.heartbeat,
+.heart-4.heartbeat,
+.heart-5.heartbeat {
+  animation: heartbeat 3s ease-in-out infinite;
+}
+
+/* Задержки анимации масштабирования */
+.heart-0.heartbeat { animation-delay: 0s; }
+.heart-1.heartbeat { animation-delay: 0.05s; }
+.heart-2.heartbeat { animation-delay: 0.1s; }
+.heart-3.heartbeat { animation-delay: 0.15s; }
+.heart-4.heartbeat { animation-delay: 0.2s; }
+.heart-5.heartbeat { animation-delay: 0.25s; }
+
+/* Добавляем родителю .heart-0 анимацию свечения */
+.heart-0.heartbeat {
+  /* Две анимации одновременно: пульсация и тень */
+  animation: heartbeat 3s ease-in-out infinite, heartShadow 3s ease-in-out infinite;
+  animation-delay: 0s, 0s;
+}
+
+/* Анимация свечения (тень) — только у псевдоэлементов самого большого слоя */
+.heart-0.heartbeat::before,
+.heart-0.heartbeat::after {
+  animation: heartShadow 3s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+/* Остальные псевдоэлементы без анимации свечения */
+.heart-1.heartbeat::before,
+.heart-1.heartbeat::after,
+.heart-2.heartbeat::before,
+.heart-2.heartbeat::after,
+.heart-3.heartbeat::before,
+.heart-3.heartbeat::after,
+.heart-4.heartbeat::before,
+.heart-4.heartbeat::after,
+.heart-5.heartbeat::before,
+.heart-5.heartbeat::after {
+  animation: none;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+
+#poem {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s ease;
+  margin-top: calc(50vh + 100px);
+  color: #fff;
+  text-align: center;
+  font-family: 'Poiret One', cursive;
+  font-size: clamp(20px, 2.5vw, 32px);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  max-width: 90vw;
+  padding: 20px;
+  position: relative;
+  z-index: 5;
+}
+
+.line {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+  margin: 8px 0;
+}
+
+.line.visible {
+  opacity: 1;
+}
+
+/* Отступ для пустых строк между куплетами */
+.line:empty::after {
+  content: "";
+  display: block;
+  height: 1.5em;
+}
+
